@@ -224,33 +224,22 @@ Developed as a team capstone at the Department of Information Technology, MIT, M
 
 
 ---
-### 👤 My Contribution: Bahabelom Kiros (Tomas)
+## 👤 My Contribution
 
-As a member of the seven-person team, my work focused on security and network aspects of MU-CLRIS.
+As a member of the  team, my work focused on the **security and network side** of MU-CLRIS:
 
-**🔐 Cybersecurity**
-- Implemented JWT-based authentication so every API request requires a valid token (`401 Unauthorized` otherwise).
-- Built role-based access control with custom permission classes (e.g. `IsDepartmentInstructor`) across four user roles.
-- Enforced department-level data isolation, blocking cross-department actions with `403 Forbidden`.
-- Configured password hashing (PBKDF2) for credential protection.
+| Area | What I did |
+|---|---|
+| **Authentication** | Implemented JWT login and token handling so API requests require a valid token (`401` otherwise) |
+| **Access control** | Built role-based access control with custom DRF permission classes across the system roles |
+| **Data isolation** | Enforced department-level restrictions, blocking cross-department actions with `403 Forbidden` |
+| **Accountability** | Implemented audit logging with Django Signals (user, action, timestamp) |
+| **Networking** | Set up LAN deployment so the system runs over the campus network without external internet |
+| **Security testing** | Tested the access-control rules with Postman and HTTPie (unauthorized, forbidden and cross-department cases) |
 
-**🔎 Information Security**
-- Implemented audit logging with Django Signals to record user, action and timestamp for accountability.
-- Contributed to the automated versioning logic that preserves document integrity (no silent overwrites).
-- Restricted unverified users to a limited view until an administrator assigns a role.
+**Skills demonstrated:** authentication, authorization, secure API design, audit logging, LAN deployment, security testing.
 
-**🌐 Networking**
-- Configured LAN deployment so the system runs without external internet access.
-- Set up the client-server connection between the React frontend and the Django REST API over the local network.
-
-**🧪 Security Testing**
-- Tested access-control rules with Postman and HTTPie (unauthorized, forbidden and cross-department cases).
-- Wrote Django unit tests for the versioning logic.
-
-**Skills demonstrated:** authentication, access control, secure API design, audit logging, LAN deployment, security testing.
-
----
-## 👤 Author
+---## 👤 Author
 
 **Bahabelom Kiros (Tomas)**  
 GitHub: [@BK-NetSec](https://github.com/BK-NetSec)
