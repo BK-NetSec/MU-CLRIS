@@ -287,7 +287,7 @@ Developed as a team capstone at the Department of Information Technology, MIT, M
 
 ## 👤 Author
 
-**Bahabelom Kiros (Tomas)**
+**Bahabelom Kiros **
 GitHub: [@BK-NetSec](https://github.com/BK-NetSec)
 
 ---
