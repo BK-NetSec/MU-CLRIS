@@ -186,73 +186,21 @@ Methods: Django `TestCase` unit tests, API/integration tests with Postman and HT
 
 ---
 
-## 🚀 Installation & Setup
+## 🚀 Running the Project
 
-> Folder names below are placeholders. Adjust them to your repository layout.
+This repository is a **project showcase**: it contains the documentation, architecture overview, screenshots and the core versioning algorithm. The full source code (Django backend and React frontend) is maintained with the project team and is **available on request** for academic or scholarship review.
 
-### Prerequisites
-- Python 3.10+
-- Node.js 18+ and npm
+### Tech requirements (for reference)
+- Python 3.10+ with Django and Django REST Framework
+- Node.js 18+ with React (Vite) and Tailwind CSS
 - MySQL 8.0+
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/BK-NetSec/MU-CLRIS.git
-cd MU-CLRIS
-```
+### Deployment model
+The backend runs on a university server and the frontend is served over the Local Area Network (LAN). Users reach the system through the server's LAN IP address, so no external internet connection is required at runtime.
 
-### 2. Backend (Django REST Framework)
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate          # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-Create the database:
-```sql
-CREATE DATABASE clris_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
-
-Configure environment variables (`.env`):
-```env
-SECRET_KEY=change-me
-DEBUG=True
-DB_NAME=clris_db
-DB_USER=your_mysql_user
-DB_PASSWORD=your_mysql_password
-DB_HOST=127.0.0.1
-DB_PORT=3306
-```
-
-Migrate, create an admin, and run on all LAN interfaces:
-```bash
-python manage.py migrate
-python manage.py createsuperuser
-python manage.py runserver 0.0.0.0:8000
-```
-
-### 3. Frontend (React + Vite)
-```bash
-cd ../frontend
-npm install
-```
-Set the API base URL (use the server's LAN IP):
-```env
-VITE_API_URL=http://<SERVER_LAN_IP>:8000/api
-```
-```bash
-npm run dev -- --host
-```
-The app is served at `http://localhost:5173`, or at `http://<SERVER_LAN_IP>:5173` from other machines on the network.
-
-### 4. Production notes
-- Set `DEBUG=False`, restrict `ALLOWED_HOSTS` and configure CORS for the LAN origin.
-- Serve Django with Gunicorn/uWSGI behind Nginx, and build the frontend with `npm run build`.
-- Allocate a dedicated local server with a static IP.
+📧 To request access to the full source code, contact the author via GitHub: [@BK-NetSec](https://github.com/BK-NetSec).
 
 ---
-
 ## 🗺️ Roadmap
 
 - [ ] Campus-wide scaling to all colleges and institutes
@@ -271,25 +219,41 @@ The app is served at `http://localhost:5173`, or at `http://<SERVER_LAN_IP>:5173
 
 ## 👥 Team
 
-Developed as a team capstone at the Department of Information Technology, MIT, Mekelle University. Advisor: **Tuemay Assefa**.
+Developed as a team capstone at the Department of Information Technology, MIT, Mekelle University.  
+**Advisor:** Tuemay Assefa
 
-| Member | ID |
-|---|---|
-| **Bahabelom Kiros (Tomas)** ([@BK-NetSec](https://github.com/BK-NetSec)) | MIT/UR/313/12 |
-| Mehari Goytom | MIT/UR/277/12 |
-| Lwam Tesfay | MIT/UR/147/11 |
-| Gerensea Welerufael | MIT/UR/263/12 |
-| Yohannes Haile | MIT/UR/142/12 |
-| Mahlet Atsbha | MIT/UR/323/12 |
-| Sentayehu Tekleyared | MIT/UR/126/12 |
 
 ---
+### 👤 My Contribution: Bahabelom Kiros (Tomas)
 
+As a member of the seven-person team, my work focused on security and network aspects of MU-CLRIS.
+
+**🔐 Cybersecurity**
+- Implemented JWT-based authentication so every API request requires a valid token (`401 Unauthorized` otherwise).
+- Built role-based access control with custom permission classes (e.g. `IsDepartmentInstructor`) across four user roles.
+- Enforced department-level data isolation, blocking cross-department actions with `403 Forbidden`.
+- Configured password hashing (PBKDF2) for credential protection.
+
+**🔎 Information Security**
+- Implemented audit logging with Django Signals to record user, action and timestamp for accountability.
+- Contributed to the automated versioning logic that preserves document integrity (no silent overwrites).
+- Restricted unverified users to a limited view until an administrator assigns a role.
+
+**🌐 Networking**
+- Configured LAN deployment so the system runs without external internet access.
+- Set up the client-server connection between the React frontend and the Django REST API over the local network.
+
+**🧪 Security Testing**
+- Tested access-control rules with Postman and HTTPie (unauthorized, forbidden and cross-department cases).
+- Wrote Django unit tests for the versioning logic.
+
+**Skills demonstrated:** authentication, access control, secure API design, audit logging, LAN deployment, security testing.
+
+---
 ## 👤 Author
 
-**Bahabelom Kiros **
+**Bahabelom Kiros (Tomas)**  
 GitHub: [@BK-NetSec](https://github.com/BK-NetSec)
-
 ---
 
 ## 📄 License
